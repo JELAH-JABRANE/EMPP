@@ -110,11 +110,12 @@
 
 .hamburger-button {
   width: 25px;
-  height: 20px;
+  /* height: 20px; */
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 5px;
+  /* justify-content: space-between; */
   align-items: center;
   background-color: transparent;
   border: none;
@@ -122,8 +123,8 @@
 
 .hamburger-button span {
   width: 100%;
-  height: 4px;
-  background-color: darkgray;
+  height: 2px;
+  background-color: whitesmoke;
   border-radius: 2px;
   display: block;
 }
@@ -158,13 +159,23 @@
 }
 
 /* Hover Effect */
-.sidebar-items li:hover {
+/* .sidebar-items li:hover {
   background-color: #f0f0f0;
   color: #000;
-}
+} */
 
 /* Active or Focused Button */
-.sidebar-items li:focus {
+/* .sidebar-items li:focus {
   background-color: #e0e0e0;
   outline: none;
+} */
+
+.ant-menu-submenu-popup {
+  top: 100%; /* Ensures it opens directly below the item */
+  left: 0;   /* Aligns the submenu directly with the parent */
+}
+
+
+.ant-menu-horizontal > .ant-menu-item {
+  padding: 0 20px;  /* Increase padding for a wider hoverable area */
 }
