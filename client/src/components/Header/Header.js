@@ -57,7 +57,7 @@ export const Header = () => {
     <div
       // style={{ borderBottom: "solid 1px #EBECF0 ", padding: "0 10px" }}
       className="header"
-      style={{ backgroundColor: '#0078d4', padding: '10px' }}
+      style={{ backgroundColor: '#0078d4', padding: '3px 10px' }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} className="container">
 

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Header } from '../../components/Header/Header'
-import { Table, Breadcrumb } from 'antd';
+import { Table, Breadcrumb, Card, Col, Row, Button } from 'antd';
 import { jwtDecode } from 'jwt-decode';
-import { Collapse, Space } from 'antd';
+import { Collapse, Space, Input } from 'antd';
+import { PlusSquareOutlined, SolutionOutlined, TeamOutlined, WalletFilled, WalletOutlined } from '@ant-design/icons';
+import { AudioOutlined } from '@ant-design/icons';
 
 
 
@@ -344,11 +346,27 @@ export const Dashbord = () => {
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
   };
+
+
+  // type SearchProps = GetProps<typeof Input.Search>;
+
+  const { Search } = Input;
+  const suffix = (
+    <AudioOutlined
+      style={{
+        fontSize: 16,
+        color: '#1677ff',
+      }}
+    />
+  );
+
+  const onSearch = (value, _e, info) => console.log(info?.source, value);
+
   return (
     <>
       <Header />
 
-      <div style={{ display: "flex", justifyContent: 'center', flexDirection: "column" }} className='container'>
+      {/* <div style={{ display: "flex", justifyContent: 'center', flexDirection: "column" }} className='container'>
         <div style={{width : "90%", margin : 'auto', padding : '20px 20px 0px'}} className='breadcrumb'>
           <Breadcrumb
             separator=">"
@@ -386,6 +404,104 @@ export const Dashbord = () => {
           />
         </div>
 
+      </div> */}
+
+
+      <div style={{ width: '90%', margin: 'auto' }} className='container'>
+        <div style={{ marginTop: '40px' }} className='cards'>
+          <Row gutter={18}>
+            <Col span={6}>
+              <Card tyle={{ padding: '0px', display: 'flex' }} bordered={false}>
+                <div >
+                  <WalletOutlined />
+                </div>
+                <h5 style={{ marginLeft: "20px" }}>Total des emplois affichés</h5>
+                <h5 style={{ marginLeft: "20px" }}>100</h5>
+
+              </Card>
+            </Col>
+
+            <Col span={6}>
+              <Card tyle={{ padding: '0px', display: 'flex' }} bordered={false}>
+                <div >
+                  <SolutionOutlined />
+                </div>
+                <h5 style={{ marginLeft: "20px" }}>Applications actives</h5>
+                <h5 style={{ marginLeft: "20px" }}>100</h5>
+              </Card>
+            </Col>
+
+            <Col style={{ padding: '0px' }} span={6}>
+              <Card style={{ padding: '0px', display: 'flex' }} bordered={true}>
+                <div >
+                  <TeamOutlined />
+                </div>
+                <h5 style={{ marginLeft: "20px" }}>Nombre total de candidats</h5>
+                <h5 style={{ marginLeft: "20px" }}>100</h5>
+              </Card>
+            </Col>
+
+            <Col style={{ padding: '0px' }} span={6}>
+              <Card style={{ padding: '0px', display: 'flex' }} bordered={true}>
+                <div >
+                  <TeamOutlined />
+                </div>
+                <h5 style={{ marginLeft: "20px" }}>Nombre total de candidats</h5>
+                <h5 style={{ marginLeft: "20px" }}>100</h5>
+              </Card>
+            </Col>
+          </Row>
+
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: "center" }} className='ongoing-jobs'>
+          <div className='left-side'>
+            <h3>recrutement en cours</h3>
+            <p style={{ fontSize: '12px', paddingTop: "0px" }}>ce sont tous des travaux en cours pour ce mois</p>
+          </div>
+          <div style={{ display: 'flex', alignSelf: 'center', gap: '20px' }} className='right-side'>
+
+            <Space direction="vertical">
+              <Search
+                placeholder="input search text"
+                onSearch={onSearch}
+                style={{
+                  width: 200,
+                }}
+              />
+
+            </Space>
+            <Button style={{ fontSize: '12px', fontWeight: '500' }} color="default" variant="solid">
+              créer en continu
+              <span><PlusSquareOutlined /></span>
+            </Button>
+
+          </div>
+
+        </div>
+
+        <div className='Listing-ongoing-jobs'>
+          <div className='list-left-side'>
+          <Row gutter={30}>
+            <Col span={18}>
+              <Card style={{ padding: '0px', display: 'flex', borderColor : 'darkgray' }} bordered={false}>
+                <div >
+                </div>
+                <h5 style={{ marginLeft: "20px" }}>Total des emplois affichés</h5>
+                <h5 style={{ marginLeft: "20px" }}>100</h5>
+
+              </Card>
+            </Col>
+
+           
+
+        
+
+            
+          </Row>
+
+          </div>
+          <div className='jobDetail-right-side'></div>
+        </div>
       </div>
 
 
