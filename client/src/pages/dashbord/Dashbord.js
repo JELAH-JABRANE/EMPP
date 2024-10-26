@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../../components/Header/Header'
-import { Table, Breadcrumb, Card, Col, Row, Button } from 'antd';
+import { Table, Breadcrumb, Card, Col, Row, Button, Select } from 'antd';
 import { jwtDecode } from 'jwt-decode';
 import { Collapse, Space, Input } from 'antd';
 import { PlusSquareOutlined, SolutionOutlined, TeamOutlined, WalletFilled, WalletOutlined } from '@ant-design/icons';
@@ -10,10 +10,15 @@ import { AudioOutlined } from '@ant-design/icons';
 
 
 export const Dashbord = () => {
+
+
+
+  const { Panel } = Collapse;
+
   const columns = [
     {
-      title: 'Nom',
-      dataIndex: 'Nom',
+      title: 'Administration organisatrice :	',
+      dataIndex: 'Administration organisatrice :	',
       filters: [
         {
           text: 'JELAH',
@@ -54,8 +59,8 @@ export const Dashbord = () => {
       width: '20%',
     },
     {
-      title: 'Prenom',
-      dataIndex: 'Prenom',
+      title: 'Grade	',
+      dataIndex: 'Grade	',
       filters: [
         {
           text: 'JELAH',
@@ -96,13 +101,13 @@ export const Dashbord = () => {
       width: '20%',
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
+      title: 'Spécialités',
+      dataIndex: 'Spécialités',
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
+      title: 'Date de publication',
+      dataIndex: 'Date de publication',
       filters: [
         {
           text: 'Tanger',
@@ -118,8 +123,8 @@ export const Dashbord = () => {
       width: '20%',
     },
     {
-      title: 'Email',
-      dataIndex: 'Email',
+      title: 'Type de recrutement	',
+      dataIndex: 'Type de recrutement	',
       filters: [
         {
           text: 'Tanger',
@@ -135,144 +140,8 @@ export const Dashbord = () => {
       width: '20%',
     },
     {
-      title: 'CNE',
-      dataIndex: 'CNE',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '20%',
-    },
-    {
-      title: 'Sexe',
-      dataIndex: 'Sexe',
-      filters: [
-        {
-          text: 'Male',
-          value: 'Tanger',
-        },
-        {
-          text: 'Female',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '20%',
-    },
-    {
-      title: 'Date de Naissance',
-      dataIndex: 'Date de Naissance',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '80%',
-    },
-    {
-      title: 'Lieu de Naisseance',
-      dataIndex: 'Lieu de Naisseance',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '80%',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '20%',
-    },
-    {
-      title: 'code Postal',
-      dataIndex: 'code Postal',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '20%',
-    },
-    {
-      title: 'Ville',
-      dataIndex: 'Ville',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '20%',
-    },
-    {
-      title: 'Paye',
-      dataIndex: 'Paye',
-      filters: [
-        {
-          text: 'Tanger',
-          value: 'Tanger',
-        },
-        {
-          text: 'Safi',
-          value: 'Safi',
-        },
-      ],
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: '20%',
-    },
-    {
-      title: 'Telephone',
-      dataIndex: 'Telephone',
+      title: 'Nombre de postes		',
+      dataIndex: 'Nombre de postes		',
       filters: [
         {
           text: 'Tanger',
@@ -299,14 +168,7 @@ export const Dashbord = () => {
       Sexe: 'Male',
       age: 27,
       Email: 'jabranejelah@gmail.com',
-      CNE: 'HH62858',
-      'Date de Naissance': '1997-09-03',
-      'Lieu de Naisseance': 'Safi',
-      address: '3 rue mamlaka qu hopital',
-      'code Postal': '10000',
-      Ville: 'Tanger',
-      Paye: 'Morocco',
-      Telephone: '066666666',
+
     },
     {
       key: '2',
@@ -315,14 +177,7 @@ export const Dashbord = () => {
       Sexe: 'Male',
       age: 32,
       Email: 'john.doe@example.com',
-      CNE: 'AB12345',
-      'Date de Naissance': '1992-01-15',
-      'Lieu de Naisseance': 'Casablanca',
-      address: '12 Rue Liberty',
-      'code Postal': '20000',
-      Ville: 'Casablanca',
-      Paye: 'Morocco',
-      Telephone: '0655555555',
+
     },
     {
       key: '3',
@@ -331,14 +186,7 @@ export const Dashbord = () => {
       Sexe: 'Female',
       age: 28,
       Email: 'jane.smith@example.com',
-      CNE: 'XY98765',
-      'Date de Naissance': '1996-03-22',
-      'Lieu de Naisseance': 'Marrakech',
-      address: '5 Boulevard Peace',
-      'code Postal': '40000',
-      Ville: 'Marrakech',
-      Paye: 'Morocco',
-      Telephone: '0677777777',
+
     },
   ];
 
@@ -360,7 +208,72 @@ export const Dashbord = () => {
     />
   );
 
+  const on_Change = (value) => {
+    console.log(`selected ${value}`);
+  };
+  const on_Search = (value) => {
+    console.log('search:', value);
+  };
+
+
+  const CollapseItems = [
+    {
+      key: '1',
+      label: 'critères de recherche',
+      children: (
+        <div style={{ display : 'flex',  flexDirection  :"column" ,gap : '10px',justifyContent : 'center'}}>
+          <div className='label'>
+          <label style={{fontSize : '12px', fontWeight : '500'}}>Administration organisatrice
+          </label>
+          </div>
+          <div className='selecte1'>
+          <Select
+          style={{width : '200px'}}
+            showSearch
+            placeholder="Select a person"
+            optionFilterProp="label"
+            onChange={on_Change}
+            onSearch={on_Search}
+            options={[
+              {
+                value: 'jack',
+                label: 'Jack',
+              },
+
+            ]}
+          />  
+
+          </div>
+          
+
+        
+        
+        </div>
+      ),
+    },
+    // Add more items here if needed
+  ];
+
+  const items = [
+    {
+      key: '1',
+      label: 'This is panel header 1',
+      children: <p>{CollapseItems}</p>,
+    },
+
+  ];
+  const App = () => {
+    const onChange = (key) => {
+      console.log(key);
+    };
+    return <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />;
+  };
+
+
+
   const onSearch = (value, _e, info) => console.log(info?.source, value);
+
+
 
   return (
     <>
@@ -480,24 +393,25 @@ export const Dashbord = () => {
         </div>
 
         <div className='Listing-ongoing-jobs'>
+          <div className='recherche'>
+            <Collapse defaultActiveKey={['1']}>
+              {CollapseItems.map((item) => (
+                <Panel header={item.label} key={item.key}>
+                  {item.children}
+                </Panel>
+              ))}
+            </Collapse>
+          </div>
           <div className='list-left-side'>
-          <Row gutter={30}>
-            <Col span={18}>
-              <Card style={{ padding: '0px', display: 'flex', borderColor : 'darkgray' }} bordered={false}>
-                <div >
-                </div>
-                <h5 style={{ marginLeft: "20px" }}>Total des emplois affichés</h5>
-                <h5 style={{ marginLeft: "20px" }}>100</h5>
+            <Table
+              columns={columns}
+              dataSource={data}
+              onChange={onChange}
+              showSorterTooltip={{
+                target: 'sorter-icon',
+              }}
+            />
 
-              </Card>
-            </Col>
-
-           
-
-        
-
-            
-          </Row>
 
           </div>
           <div className='jobDetail-right-side'></div>
